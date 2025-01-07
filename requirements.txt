@@ -1,0 +1,4 @@
+Flask
+pymupdf
+pytesseract
+pdf2image
