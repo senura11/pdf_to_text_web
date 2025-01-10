@@ -52,3 +52,23 @@ pre {
 .download-btn:hover {
     background-color: #218838;
 }
+
+#copy-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#copy-button:hover {
+    background-color: #0056b3;
+}
+
+#copy-button:active {
+    background-color: #004080;
+}
