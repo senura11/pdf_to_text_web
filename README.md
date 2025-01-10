@@ -1,3 +1,8 @@
+## Deployment on PythonAnywhere
+
+To deploy this project on PythonAnywhere, follow these steps:
+
+```typescript
 // Installation Guide for PythonAnywhere (TypeScript Example)
 
 /**
