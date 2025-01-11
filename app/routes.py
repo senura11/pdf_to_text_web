@@ -1,8 +1,11 @@
-from app import app  # Import the app instance
+# app/routes.py
+
 from flask import render_template, request, redirect, url_for, flash, send_file
 import os
+from app import app  # Import the app instance from the app package
 from app.pdf_converter import pdf_to_text
 from app.ocr_converter import pdf_to_text_ocr
+from app.text_formatter import format_extracted_text
 
 ALLOWED_EXTENSIONS = {'pdf'}
 
@@ -36,9 +39,12 @@ def index():
                     pdf_to_text(file_path, output_path)
 
                 with open(output_path, 'r', encoding='utf-8') as f:
-                    text = f.read()
+                    raw_text = f.read()
 
-                return render_template('index.html', text=text, filename=filename)
+                # Format the extracted text
+                formatted_text = format_extracted_text(raw_text)
+
+                return render_template('index.html', text=formatted_text, filename=filename)
             except Exception as e:
                 flash(f'Error: {str(e)}')
                 return redirect(request.url)
